@@ -27,3 +27,4 @@ cd %INITIALPATH%
 
 @REM delete initial.cmd
 del initial.cmd
+    
